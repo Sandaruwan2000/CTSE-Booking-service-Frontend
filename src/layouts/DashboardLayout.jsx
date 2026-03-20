@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+// new layout for both admin and user dashboards with responsive sidebar and improved styling
 const DashboardLayout = ({ type }) => {
   const { user, logout } = useAuth();
   const location = useLocation();
