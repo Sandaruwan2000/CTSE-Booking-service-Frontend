@@ -14,17 +14,17 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-export const registerUser = (data) => API.post('/users/register', data);
-export const loginUser = (data) => API.post('/users/login', data);
-export const getProfile = () => API.get('/users/profile');
-export const updateProfile = (data) => API.put('/users/profile', data);
-export const getUsers = () => API.get('/users');
+export const registerUser = (data) => API.post('/user/register', data);
+export const loginUser = (data) => API.post('/user/login', data);
+export const getProfile = () => API.get('/user/profile');
+export const updateProfile = (data) => API.put('/user/profile', data);
+export const getUsers = () => API.get('/user');
 
-export const getBooks = (params = {}) => API.get('/books', { params });
-export const getBookById = (id) => API.get(`/books/${id}`);
-export const createBook = (data) => API.post('/books', data);
-export const updateBook = (id, data) => API.put(`/books/${id}`, data);
-export const deleteBook = (id) => API.delete(`/books/${id}`);
+export const getBooks = (params = {}) => API.get('/booking/', { params });
+export const getBookById = (id) => API.get(`/booking/${id}`);
+export const createBook = (data) => API.post('/booking/', data);
+export const updateBook = (id, data) => API.put(`/booking/${id}`, data);
+export const deleteBook = (id) => API.delete(`/booking/${id}`);
 
 // Order Service APIs
 export const createOrder = (data) => API.post('/orders', data);
