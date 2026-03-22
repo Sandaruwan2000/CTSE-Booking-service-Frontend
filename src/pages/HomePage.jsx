@@ -47,7 +47,7 @@ const HomePage = () => {
               Discover your next favorite book.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Welcome to PothaGedara, your online bookstore for fiction, non-fiction, and academic titles.
+              Welcome to Wearta.lk, your online bookstore for fiction, non-fiction, and academic titles.
               Browse new arrivals, place orders in minutes, and track delivery updates from your account dashboard.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
