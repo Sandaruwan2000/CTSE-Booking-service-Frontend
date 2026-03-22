@@ -185,8 +185,14 @@ const OrderPaymentPage = () => {
 
       setAlreadyPaid(true);
       const serverMessage = response?.data?.message || 'Payment successful. Your order is now ready for shipment processing.';
-      setSuccessMessage(serverMessage);
-      setPopup({ open: true, type: 'success', message: serverMessage });
+      const nextStatus = response?.data?.orderStatus || order?.orderStatus;
+      if (nextStatus) {
+        setOrder((prev) => ({ ...prev, orderStatus: nextStatus }));
+      }
+      const statusLabel = nextStatus ? `Current status: ${nextStatus}` : '';
+      const displayMessage = statusLabel ? `${serverMessage} (${statusLabel})` : serverMessage;
+      setSuccessMessage(displayMessage);
+      setPopup({ open: true, type: 'success', message: displayMessage });
     } catch (err) {
       const serverMessage = err.response?.data?.message || 'Payment failed. Please try again.';
       setError(serverMessage);
