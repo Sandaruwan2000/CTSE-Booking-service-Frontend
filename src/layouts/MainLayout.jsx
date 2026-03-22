@@ -127,6 +127,8 @@ const MainLayout = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Books', path: '/books' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -137,13 +139,13 @@ const MainLayout = () => {
             {/* Brand */}
             <Link to="/" className="flex items-center gap-2 group">
               <div className="w-9 h-9 bg-brand-600 rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-sm">PG</span>
+                <span className="text-white font-bold text-sm">W</span>
               </div>
               <div className="flex flex-col leading-none">
                 <span className={`font-bold text-base transition-colors ${brandTitleClasses}`}>
                   Online Bookstore
                 </span>
-                <span className={`text-[10px] font-semibold tracking-widest ${brandSubtitleClasses}`}>POTHAGEDARA</span>
+                <span className={`text-[10px] font-semibold tracking-widest ${brandSubtitleClasses}`}>WEARTA.LK</span>
               </div>
             </Link>
 
@@ -315,11 +317,11 @@ const MainLayout = () => {
       <footer className="border-t border-slate-200 bg-white py-10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="mb-4">
-            <span className="text-slate-800 font-bold text-lg">PothaGedara</span>
+            <span className="text-slate-800 font-bold text-lg">Wearta</span>
             <span className="text-slate-400 font-bold text-sm tracking-wide">.LK</span>
           </div>
           <p className="text-slate-400 text-xs text-center border-t border-slate-100 pt-6">
-            (c) {new Date().getFullYear()} PothaGedara. All rights reserved.
+            (c) {new Date().getFullYear()} Wearta.lk. All rights reserved.
           </p>
         </div>
       </footer>
