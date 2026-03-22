@@ -12,6 +12,8 @@ import BookDetailsPage from './pages/BookDetailsPage';
 import CartPage from './pages/CartPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import UserProfile from './pages/user/UserProfile';
 import UserOrders from './pages/user/UserOrders';
 import OrderPaymentPage from './pages/user/OrderPaymentPage';
@@ -34,6 +36,8 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route
                 path="/dashboard"
                 element={(
