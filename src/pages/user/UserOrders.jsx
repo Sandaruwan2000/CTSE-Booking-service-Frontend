@@ -125,9 +125,9 @@ const UserOrders = () => {
               {/* Status message */}
               {getStatusDescription(order.orderStatus) && (
                 <div className={`px-4 sm:px-6 py-3 text-sm font-medium border-b border-slate-100 ${order.orderStatus === 'approved' ? 'bg-blue-50 text-blue-700' :
-                    order.orderStatus === 'pending_approval' ? 'bg-amber-50 text-amber-700' :
-                      order.orderStatus === 'cancelled' ? 'bg-red-50 text-red-600' :
-                        'bg-slate-50 text-slate-600'
+                  order.orderStatus === 'pending_approval' ? 'bg-amber-50 text-amber-700' :
+                    order.orderStatus === 'cancelled' ? 'bg-red-50 text-red-600' :
+                      'bg-slate-50 text-slate-600'
                   }`}>
                   <div className="flex items-center gap-2">
                     {order.orderStatus === 'pending_approval' && (
