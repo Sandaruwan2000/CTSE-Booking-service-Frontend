@@ -254,11 +254,20 @@ const OrderPaymentPage = () => {
         </div>
 
         <div className="p-5 sm:p-6 space-y-5">
-          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Order Status</p>
-            <p className="text-slate-800 font-semibold">
-              {order.orderStatus === 'approved' ? 'Approved - Ready for payment' : `Current status: ${order.orderStatus}`}
-            </p>
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-500">Order Info</p>
+            <div className="flex flex-col gap-1 text-sm text-slate-700">
+              <span className="font-semibold text-slate-800">
+                {order.userName || user?.name || 'Customer'}
+              </span>
+              <span>{order.userEmail || user?.email || order.userId}</span>
+            </div>
+            <div className="border-t border-slate-200 pt-3 text-sm">
+              <span className="text-slate-500">Status: </span>
+              <span className="font-semibold text-slate-800">
+                {order.orderStatus === 'approved' ? 'Approved - Ready for payment' : order.orderStatus}
+              </span>
+            </div>
           </div>
 
           <div>
