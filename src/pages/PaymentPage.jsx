@@ -58,7 +58,7 @@ const PaymentPage = () => {
         </div>
         <h2 className="text-3xl font-extrabold text-slate-800 mb-4">Payment Successful!</h2>
         <p className="text-slate-500 mb-8 max-w-md">
-          Thank you for shopping at PothaGedara.lk. Your payment has been processed and your books will be shipped soon.
+          Thank you for shopping at Wearta.lk. Your payment has been processed and your books will be shipped soon.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/dashboard/orders" className="btn-primary">View My Orders</Link>
