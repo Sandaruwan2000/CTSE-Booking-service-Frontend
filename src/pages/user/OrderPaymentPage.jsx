@@ -87,6 +87,7 @@ const OrderPaymentPage = () => {
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [alreadyPaid, setAlreadyPaid] = useState(false);
+  const [popup, setPopup] = useState({ open: false, type: 'info', message: '' });
   const [form, setForm] = useState({
     cardName: '',
     cardNumber: '',
@@ -171,9 +172,10 @@ const OrderPaymentPage = () => {
     setProcessing(true);
     setError('');
     setSuccessMessage('');
+    setPopup({ open: false, type: 'info', message: '' });
 
     try {
-      await processPayment({
+      const response = await processPayment({
         orderId: order._id,
         userId: user._id,
         amount: order.totalPrice,
@@ -182,9 +184,13 @@ const OrderPaymentPage = () => {
       });
 
       setAlreadyPaid(true);
-      setSuccessMessage('Payment successful. Your order is now ready for shipment processing.');
+      const serverMessage = response?.data?.message || 'Payment successful. Your order is now ready for shipment processing.';
+      setSuccessMessage(serverMessage);
+      setPopup({ open: true, type: 'success', message: serverMessage });
     } catch (err) {
-      setError(err.response?.data?.message || 'Payment failed. Please try again.');
+      const serverMessage = err.response?.data?.message || 'Payment failed. Please try again.';
+      setError(serverMessage);
+      setPopup({ open: true, type: 'error', message: serverMessage });
     } finally {
       setProcessing(false);
     }
@@ -211,6 +217,29 @@ const OrderPaymentPage = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
+      {popup.open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 px-4">
+          <div className="w-full max-w-md rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden">
+            <div className={`px-5 py-4 border-b ${popup.type === 'success' ? 'bg-emerald-50 border-emerald-100' : 'bg-red-50 border-red-100'}`}>
+              <p className={`text-sm font-semibold ${popup.type === 'success' ? 'text-emerald-700' : 'text-red-700'}`}>
+                {popup.type === 'success' ? 'Payment successful' : 'Payment failed'}
+              </p>
+            </div>
+            <div className="px-5 py-4 text-sm text-slate-700">
+              {popup.message}
+            </div>
+            <div className="px-5 py-4 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setPopup({ open: false, type: 'info', message: '' })}
+                className="btn-secondary h-10 px-5"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <Link to="/dashboard/orders" className="text-brand-600 hover:text-brand-700 font-bold mb-6 inline-flex items-center gap-2">
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
