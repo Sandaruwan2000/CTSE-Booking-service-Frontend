@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { getUsers, deleteUser } from '../../services/api';
-import { AuthContext } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 /* ─── Confirmation Modal ─────────────────────────────────────────── */
 const ConfirmDeleteModal = ({ user, onConfirm, onCancel, loading }) => (
@@ -82,7 +82,7 @@ const Toast = ({ message, type, onClose }) => {
 
 /* ─── Main Component ─────────────────────────────────────────────── */
 const ManageUsers = () => {
-  const { user: currentAdmin } = useContext(AuthContext);
+  const { user: currentAdmin } = useAuth();
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
