@@ -27,7 +27,7 @@ export const updateBook = (id, data) => API.put(`/booking/${id}`, data);
 export const deleteBook = (id) => API.delete(`/booking/${id}`);
 
 // Order Service APIs
-export const createOrder = (data) => API.post('/orders', data);
+export const createOrder = (data) => API.post('/orders/', data);
 export const getMyOrders = () => API.get('/orders/my-orders');
 export const getPendingPaymentCount = () => API.get('/orders/pending-payment-count');
 export const getAllOrders = (params = {}) => API.get('/orders', { params });
