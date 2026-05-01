@@ -30,7 +30,7 @@ export const deleteBook = (id) => API.delete(`/booking/${id}`);
 export const createOrder = (data) => API.post('/orders/', data);
 export const getMyOrders = () => API.get('/orders/my-orders');
 export const getPendingPaymentCount = () => API.get('/orders/pending-payment-count');
-export const getAllOrders = (params = {}) => API.get('/orders', { params });
+export const getAllOrders = (params = {}) => API.get('/orders/', { params });
 export const getOrderById = (id) => API.get(`/orders/${id}`);
 export const approveOrder = (id, data = {}) => API.put(`/orders/${id}/approve`, data);
 export const cancelOrder = (id, data = {}) => API.put(`/orders/${id}/cancel`, data);
@@ -38,8 +38,8 @@ export const updateShipmentStatus = (id, data) => API.put(`/orders/${id}/shipmen
 export const updateOrderStatus = (id, data) => API.put(`/orders/${id}/status`, data);
 
 // Payment Service APIs
-export const processPayment = (data) => API.post('/payments', data);
+export const processPayment = (data) => API.post('/payments/', data);
 export const getPaymentsByUser = (userId) => API.get(`/payments/${userId}`);
-export const getAllPayments = () => API.get('/payments');
+export const getAllPayments = () => API.get('/payments/');
 
 export default API;
