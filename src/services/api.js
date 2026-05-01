@@ -19,6 +19,7 @@ export const loginUser = (data) => API.post('/user/login', data);
 export const getProfile = () => API.get('/user/profile');
 export const updateProfile = (data) => API.put('/user/profile', data);
 export const getUsers = () => API.get('/user');
+export const deleteUser = (id) => API.delete(`/user/${id}`);
 
 export const getBooks = (params = {}) => API.get('/booking/', { params });
 export const getBookById = (id) => API.get(`/booking/${id}`);
