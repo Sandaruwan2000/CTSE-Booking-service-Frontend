@@ -44,7 +44,7 @@ const HomePage = () => {
               Curated Reads for Every Reader
             </span>
             <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight sm:text-6xl">
-              Discover your next favorite book.
+              Discover your next favorite book bbbbbbbbbbbbbbbbbbb.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               Welcome to PothaGedara, your online bookstore for fiction, non-fiction, and academic titles.
