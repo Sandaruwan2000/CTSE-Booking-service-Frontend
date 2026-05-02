@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
+  // test
 
   if (loading) {
     return (
